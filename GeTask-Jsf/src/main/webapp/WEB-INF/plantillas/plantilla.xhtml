@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title><ui:insert name="tituloPagina">titulo de la pagina</ui:insert></title>
+        <link href="{%=request.getContextPath()%}/css/stylecss.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+        <ui:insert name="contenidoPagina"> contenido de la pagina </ui:insert>
+    </h:body>
+</html>

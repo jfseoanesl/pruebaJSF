@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich">
+    <h:body> 
+        <ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+            <ui:define name="tituloPagina">Login de Acceso</ui:define>
+
+
+
+            <ui:define name="contenidoPagina">
+                <h:panelGroup layout="block" rendered="#{accessController.loginError}" 
+                              style="color:#B94A48; background-color: #F2DEDE; border: 1px solid #B94A48; padding: 5px">
+                    <h:outputText value="#{accessController.errorMsg}"/>
+                </h:panelGroup>
+                <br/>
+
+                <rich:panel header="Acceso a la aplicacion">
+                    <h:form prependId="false" id="loginForm">
+                        <table>
+                            <tr>
+                                <td><h:outputLabel for="inputUsuario" value="#{msgs['loginForm.login']}"/></td>
+                                <td><h:inputText id="inputUsuario" value="#{loginBackingBean.login}"/></td>
+                            </tr>
+                            <tr>
+                                <td><h:outputLabel for="inputClave" value="#{msgs['loginForm.password']}"/></td>
+                                <td><h:inputSecret id="inputClave" value="#{loginBackingBean.password}"/></td>
+                            </tr>
+                            <tr>
+                                <td><h:commandButton action="#{accessController.doLogin()}" value="Ingresar"/></td>
+                                <td><h:commandLink action="#{accessController.doRegister()}" value="Registrar usuario"/></td>
+                            </tr>
+                        </table>
+
+                    </h:form>
+
+                </rich:panel>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich">
+   
+    <h:body>
+        <ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+            <ui:define name="tituloPagina">Registro de usuario</ui:define>
+            <ui:define name="contenidoPagina">
+                <rich:panel header="Formulario de registro">
+                    <h:form>
+                        <h:panelGrid id="panelRegister" columns="3">
+                            <f:event listener="#{userRegisterControllerBean.validateEqualsPassword}" type="postValidate"/>
+                            <h:outputLabel for="inputDni" value="Dni:"/>
+                            <h:inputText id="inputDni" value="#{registerBackingBean.dni}" required="true">
+                                <f:validator validatorId="dniValidator"/>
+                                <f:converter converterId="dniConverter"/>
+                            </h:inputText>
+                            <h:message for="inputDni" style = "color:#B94A48; font-weight: bolder"/>
+                            
+                            <h:outputLabel for="inputLogin" value="Login:"/>
+                            <h:inputText id="inputLogin" value="#{registerBackingBean.login}" required="true">
+                                <f:event listener="#{userRegisterControllerBean.validateLoginExist}" type="postValidate"/>
+                            </h:inputText>
+                            <h:message for="inputLogin" style="color:#B94A48; font-weight: bolder"/>
+                            
+                            <h:outputLabel for="inputPasswordOne" value="Password:"/>
+                            <h:inputSecret id="inputPasswordOne" value="#{registerBackingBean.passwordOne}" required="true"/>
+                            <h:message for="inputPasswordOne" style="color:#B94A48; font-weight: bolder"/>
+                            
+                            <h:outputLabel for="inputPasswordTwo" value="Repetir Password:"/>
+                            <h:inputSecret id="inputPasswordTwo" value="#{registerBackingBean.passwordTwo}" required="true"/>
+                            <h:message for="inputPasswordTwo" style="color:#B94A48; font-weight: bolder" />
+                            
+                            <h:commandButton action="#{userRegisterControllerBean.doRegister()}" value="Registrar"/>
+                            <h:commandLink action="logout" value="Volver"/>
+                            <h:message for="panelRegister" style="color:#B94A48; font-weight: bolder" />
+                        </h:panelGrid>
+                        
+                    </h:form>
+                </rich:panel>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

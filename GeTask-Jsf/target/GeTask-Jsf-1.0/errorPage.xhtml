@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+            <ui:define name="tituloPagina"> Pagia de Error</ui:define>
+            <ui:define name="contenidoPagina">
+                <h:form prependId="false">
+                    !!Se ha producido un error¡¡
+                    <br/>
+                    <h:commandLink action="index?faces-redirect=true" value="Volver"/>
+                </h:form>
+                
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

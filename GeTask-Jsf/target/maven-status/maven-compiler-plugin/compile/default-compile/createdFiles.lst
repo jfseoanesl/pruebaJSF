@@ -1,0 +1,11 @@
+beans\modelo\UserBean.class
+beans\modelo\ListUsuarioBean.class
+beans\controllers\AccessController.class
+beans\backing\LoginBackingBean.class
+beans\validator\DniValidator.class
+beans\modelo\TaskBean.class
+beans\controllers\UserRegisterControllerBean.class
+beans\converter\DniConverter.class
+beans\configuracion\ConfigurationJSF.class
+beans\backing\RegisterBackingBean.class
+beans\modelo\DniBean.class
